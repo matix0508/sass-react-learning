@@ -1,10 +1,14 @@
+import classNames from "classnames";
 import React, { FC } from "react";
-import './Menu.scss'
 
-export const Menu:FC = (props) => {
+interface IMenuProps {
+  opened: boolean
+}
+
+export const Menu:FC<IMenuProps> = (props) => {
   return (
-    <nav className="nav">
-      <ul className="menu-nav">
+    <nav className={classNames(["nav", {open: props.opened}])}>
+      <ul className={classNames(["menu-nav", {open: props.opened}])}>
         {props.children}
       </ul>
     </nav>

@@ -1,4 +1,10 @@
-@import "./conifg";
+@import "config";
+@import "home";
+@import "menu";
+@import "about";
+@import "projects";
+@import "contact";
+@import "responsive";
 
 body {
   background: $primary-color;
@@ -58,19 +64,4 @@ footer {
   text-align: right;
   padding: 1rem;
   color: set-text-color($primary-color);
-}
-
-.home {
-  height: 100%;
-  padding-top: 40vh;
-  overflow: hidden;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(
-      to right,
-      rgba($primary-color, 0.9),
-      rgba($primary-color, 0.3)
-    ),
-    url("/img/model-1.jpg") center top;
-  background-size: cover;
 }

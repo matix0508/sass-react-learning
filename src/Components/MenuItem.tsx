@@ -1,21 +1,26 @@
 import React, { FC } from "react";
 import classnames from "classnames";
-import './MenuItem.scss'
+import { Link, useLocation } from "react-router-dom";
+import { getLocation } from "../utils/getLocation"
+
 
 interface IMenuItemProps {
-  to: string;
-  active: boolean;
+  to: string
+  opened: boolean,
+  onClick: () => void
 }
 
 export const MenuItem: FC<IMenuItemProps> = (props) => {
-  const liStyles = classnames("menu-nav", "item", {
-    active: props.active,
+  const loc = useLocation();
+  const liStyles = classnames("menu-nav__item", {
+    active: getLocation(loc) === props.to,
+    open: props.opened
   });
   return (
-    <li className={liStyles}>
-      <a href={props.to} className={classnames("menu-nav__link")}>
+    <li className={liStyles} onClick={props.onClick}>
+      <Link to={props.to} className={classnames("menu-nav__link", {open: props.opened})}>
         {props.children}
-      </a>
+      </Link>
     </li>
   );
 };

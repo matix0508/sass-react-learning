@@ -1,46 +1,50 @@
-import React from "react";
-import "./App.scss";
+import React, { useState } from "react";
 import { Menu } from "./Components/Menu";
 import { MenuItem } from "./Components/MenuItem";
 import { MenuBtn } from "./Components/MenuBtn";
 import { Home } from "./Components/pages/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Wrapper } from "./Components/Wrapper";
+import { About } from "./Components/pages/About";
+import { Projects } from "./Components/pages/Projects";
+import { Contact } from "./Components/pages/Contact";
 
 function App() {
+  const [menuOpened, setMenuOpened] = useState(false);
   return (
-    <>
+    <BrowserRouter>
       <header>
-        <MenuBtn />
-
-        <Menu>
-          <MenuItem active={true} to="#!">
+        <MenuBtn
+          onClick={() => setMenuOpened(!menuOpened)}
+          opened={menuOpened}
+        />
+        <Menu opened={menuOpened}>
+          <MenuItem to="home" opened={menuOpened} onClick={() => setMenuOpened(false)}>
             Home
+          </MenuItem>
+          <MenuItem to="about" opened={menuOpened} onClick={() => setMenuOpened(false)}>
+            About Me
+          </MenuItem>
+          <MenuItem to="project" opened={menuOpened} onClick={() => setMenuOpened(false)}>
+            Projects
+          </MenuItem>
+          <MenuItem to="contact" opened={menuOpened} onClick={() => setMenuOpened(false)}>
+            Contact
           </MenuItem>
         </Menu>
       </header>
 
       <main>
-        <section className="home">
-         <Home  />
-
-          <div className="social-icons">
-            <a href="#!">
-              <i className="fab fa-twitter fa-2x"></i>
-            </a>
-            <a href="#!">
-              <i className="fab fa-facebook fa-2x"></i>
-            </a>
-            <a href="#!">
-              <i className="fab fa-instagram fa-2x"></i>
-            </a>
-            <a href="#!">
-              <i className="fab fa-github fa-2x"></i>
-            </a>
-          </div>
-
-          <footer>&copy; Copyright 2022</footer>
-        </section>
+        <Routes>
+          <Route path="home" element={<Wrapper><Home /></Wrapper>} />
+          <Route path="about" element={<Wrapper><About /></Wrapper>} />
+          <Route path="project" element={<Wrapper><Projects /></Wrapper>} />
+          <Route path="contact" element={<Wrapper><Contact /></Wrapper>} />
+        </Routes>
+        
       </main>
-    </>
+      
+    </BrowserRouter>
   );
 }
 
