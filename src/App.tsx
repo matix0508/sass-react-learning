@@ -19,16 +19,32 @@ function App() {
           opened={menuOpened}
         />
         <Menu opened={menuOpened}>
-          <MenuItem to="home" opened={menuOpened} onClick={() => setMenuOpened(false)}>
+          <MenuItem
+            to="home"
+            opened={menuOpened}
+            onClick={() => setMenuOpened(false)}
+          >
             Home
           </MenuItem>
-          <MenuItem to="about" opened={menuOpened} onClick={() => setMenuOpened(false)}>
+          <MenuItem
+            to="about"
+            opened={menuOpened}
+            onClick={() => setMenuOpened(false)}
+          >
             About Me
           </MenuItem>
-          <MenuItem to="project" opened={menuOpened} onClick={() => setMenuOpened(false)}>
+          <MenuItem
+            to="project"
+            opened={menuOpened}
+            onClick={() => setMenuOpened(false)}
+          >
             Projects
           </MenuItem>
-          <MenuItem to="contact" opened={menuOpened} onClick={() => setMenuOpened(false)}>
+          <MenuItem
+            to="contact"
+            opened={menuOpened}
+            onClick={() => setMenuOpened(false)}
+          >
             Contact
           </MenuItem>
         </Menu>
@@ -36,14 +52,40 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="home" element={<Wrapper><Home /></Wrapper>} />
-          <Route path="about" element={<Wrapper><About /></Wrapper>} />
-          <Route path="project" element={<Wrapper><Projects /></Wrapper>} />
-          <Route path="contact" element={<Wrapper><Contact /></Wrapper>} />
+          <Route
+            path="home"
+            element={
+              <Wrapper>
+                <Home />
+              </Wrapper>
+            }
+          />
+          <Route
+            path="about"
+            element={
+              <Wrapper>
+                <About />
+              </Wrapper>
+            }
+          />
+          <Route
+            path="project"
+            element={
+              <Wrapper>
+                <Projects />
+              </Wrapper>
+            }
+          />
+          <Route
+            path="contact"
+            element={
+              <Wrapper>
+                <Contact />
+              </Wrapper>
+            }
+          />
         </Routes>
-        
       </main>
-      
     </BrowserRouter>
   );
 }
