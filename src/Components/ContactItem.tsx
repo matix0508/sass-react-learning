@@ -10,7 +10,7 @@ interface IContactItemProps {
 
 export const ContactItem:FC<IContactItemProps> = (props) => {
     return (
-        <div className={`contact__{props.name}`}>
+        <div className={`contact__${props.name}`}>
         <FontAwesomeIcon icon={props.icon} />
          {/* {props.name} */}
             <div className="text-secondary">{props.children}</div>
